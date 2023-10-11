@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ShepardsPie.Models;
 
-namespace ShephardsPies.Data;
+namespace ShephardsPie.Data;
 public class ShephardsPiesDbContext : IdentityDbContext<IdentityUser>
 {
     private readonly IConfiguration _configuration;
@@ -22,37 +22,66 @@ public class ShephardsPiesDbContext : IdentityDbContext<IdentityUser>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
+modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
         {
-            new(){
-            Id = 1,
-            FirstName = "Matthew",
-            LastName = "Wilson",
-            Address = "101 Main Street",
-            Email = "skdbaksdb@gmail.com"
-            },
-            new(){
-            Id = 2,
-            FirstName = "Deanna",
-            LastName = "Davis",
-            Address = "103 Main Street",
-            Email = "skdbaksdb@gmail.com"
-            },
-            new(){
-            Id = 3,
-            FirstName = "Caden",
-            LastName = "Mildenhall",
-            Address = "100 Main Street",
-            Email = "skdbaksdb@gmail.com"
-            },
-            new(){
-            Id = 4,
-            FirstName = "Thomas",
-            LastName = "Prince",
-            Address = "108 Main Street",
-            Email = "skdbaksdb@gmail.com"
-            },
+            Id = "c3aaeb97-d2ba-4a53-a521-4eea61e59b35",
+            Name = "Admin",
+            NormalizedName = "admin"
         });
+
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        {
+            Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
+            UserName = "Administrator",
+            Email = "admina@strator.comx",
+            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+        });
+
+        modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+        {
+            RoleId = "c3aaeb97-d2ba-4a53-a521-4eea61e59b35",
+            UserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f"
+        });
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        {
+            Id = 1,
+            IdentityUserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
+            FirstName = "Admina",
+            LastName = "Strator",
+            Address = "101 Main Street",
+        });
+
+        // modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
+        // {
+        //     new(){
+        //     Id = 1,
+        //     FirstName = "Matthew",
+        //     LastName = "Wilson",
+        //     Address = "101 Main Street",
+        //     Email = "skdbaksdb@gmail.com"
+        //     },
+        //     new(){
+        //     Id = 2,
+        //     FirstName = "Deanna",
+        //     LastName = "Davis",
+        //     Address = "103 Main Street",
+        //     Email = "skdbaksdb@gmail.com"
+        //     },
+        //     new(){
+        //     Id = 3,
+        //     FirstName = "Caden",
+        //     LastName = "Mildenhall",
+        //     Address = "100 Main Street",
+        //     Email = "skdbaksdb@gmail.com"
+        //     },
+        //     new(){
+        //     Id = 4,
+        //     FirstName = "Thomas",
+        //     LastName = "Prince",
+        //     Address = "108 Main Street",
+        //     Email = "skdbaksdb@gmail.com"
+        //     },
+        // });
         modelBuilder.Entity<Cheese>().HasData(new Cheese[]
         {
             new Cheese
@@ -318,7 +347,7 @@ public class ShephardsPiesDbContext : IdentityDbContext<IdentityUser>
                 Id = 2,
                 TipAmount = 25.00M,
                 UserProfileId = 1,
-                DeliveryDriverId = 2,
+                DeliveryDriverId = 1,
                 TimePlaced = new DateTime(2023,9,28)
             },
         });

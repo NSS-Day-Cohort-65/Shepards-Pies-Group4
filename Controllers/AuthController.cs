@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Text;
 using ShepardsPie.Models;
-using ShepardsPie.Data;
+using ShephardsPie.Data;
 
 namespace ShepardsPie.Controllers;
 
@@ -15,10 +15,10 @@ namespace ShepardsPie.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private ShepardsPieDbContext _dbContext;
+    private ShephardsPiesDbContext _dbContext;
     private UserManager<IdentityUser> _userManager;
 
-    public AuthController(ShepardsPieDbContext context, UserManager<IdentityUser> userManager)
+    public AuthController(ShephardsPiesDbContext context, UserManager<IdentityUser> userManager)
     {
         _dbContext = context;
         _userManager = userManager;
