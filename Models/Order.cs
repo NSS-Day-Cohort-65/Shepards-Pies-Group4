@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using ShepardsPie.Models;
+namespace ShepherdsPie.Models;
 
 public class Order {
   public int Id { get; set; }

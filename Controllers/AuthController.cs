@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Text;
-using ShepardsPie.Models;
-using ShephardsPie.Data;
+using ShepherdsPie.Models;
+using ShepherdsPie.Data;
 
-namespace ShepardsPie.Controllers;
+namespace ShepherdsPie.Controllers;
 
 
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private ShephardsPiesDbContext _dbContext;
+    private ShepherdsPiesDbContext _dbContext;
     private UserManager<IdentityUser> _userManager;
 
-    public AuthController(ShephardsPiesDbContext context, UserManager<IdentityUser> userManager)
+    public AuthController(ShepherdsPiesDbContext context, UserManager<IdentityUser> userManager)
     {
         _dbContext = context;
         _userManager = userManager;

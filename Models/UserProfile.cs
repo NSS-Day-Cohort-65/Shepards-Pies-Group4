@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace ShepardsPie.Models;
+namespace ShepherdsPie.Models;
 
 public class UserProfile
 {

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShepardsPie.Models;
+using ShepherdsPie.Models;
 
-namespace ShephardsPie.Data;
-public class ShephardsPiesDbContext : IdentityDbContext<IdentityUser>
+namespace ShepherdsPie.Data;
+public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
 {
     private readonly IConfiguration _configuration;
     public DbSet<UserProfile> UserProfiles { get; set; }
@@ -15,7 +15,7 @@ public class ShephardsPiesDbContext : IdentityDbContext<IdentityUser>
     public DbSet<PizzaTopping> PizzaToppings { get; set; }
     public DbSet<Pizza> Pizzas { get; set; }
     public DbSet<Order> Orders { get; set; }
-    public ShephardsPiesDbContext(DbContextOptions <ShephardsPiesDbContext> context, IConfiguration config) : base(context)
+    public ShepherdsPiesDbContext(DbContextOptions <ShepherdsPiesDbContext> context, IConfiguration config) : base(context)
     {
         _configuration = config;
     }

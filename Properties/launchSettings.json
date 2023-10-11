@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "ShepardsPie": {
+    "ShepherdsPie": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

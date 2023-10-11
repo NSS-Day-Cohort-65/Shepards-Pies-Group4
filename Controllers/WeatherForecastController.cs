@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ShepardsPie.Controllers;
+namespace ShepherdsPie.Controllers;
 
 [ApiController]
 [Route("[controller]")]

@@ -1,4 +1,4 @@
-namespace ShepardsPie;
+namespace ShepherdsPie;
 
 public class WeatherForecast
 {

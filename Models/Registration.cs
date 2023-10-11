@@ -1,4 +1,4 @@
-namespace ShepardsPie.Models;
+namespace ShepherdsPie.Models;
 
 public class Registration
 {

@@ -1,3 +1,7 @@
+
+
+namespace ShepherdsPie.Models;
+
 public class PizzaTopping{
   public int Id { get; set; }
   public int PizzaId { get; set; }
