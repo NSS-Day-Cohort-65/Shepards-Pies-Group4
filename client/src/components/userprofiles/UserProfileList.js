@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Button, Table } from "reactstrap";
-import { Link } from "react-router-dom";
 import { demoteUser, getUserProfilesWithRoles, promoteUser } from "../../managers/userProfileManager";
 
 export default function UserProfileList({ loggedInUser }) {
