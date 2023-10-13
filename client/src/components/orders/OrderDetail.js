@@ -3,7 +3,7 @@ import { Card, CardTitle, CardSubtitle, CardBody, CardText } from "reactstrap";
 import { useParams, Link } from "react-router-dom";
 import { getOrderById } from "../../managers/orderManager.js";
 
-export default function OrderDetails() {
+export default function OrderDetail() {
   const [order, setOrder] = useState({});
   const { id } = useParams();
 
@@ -52,8 +52,7 @@ export default function OrderDetails() {
             <CardText>Sauce: {pizza?.sauce?.title}</CardText>
             <CardText>Cheese: {pizza?.cheese?.title}</CardText>
             <CardText>Toppings: {pizza?.pizzaTopping?.map((pizzaTopping) => (
-              <div key={pizzaTopping.topping.id}>
-                {pizzaTopping.topping.title}
+              <div key={pizzaTopping.pizzaTopping.id}>
               </div>
             ))}</CardText>
           </CardBody>
