@@ -16,18 +16,14 @@ export default function OrderList({ setDetailsOrderId }) {
   return (
     <>
       <h2>Orders</h2>
-      {orders ? (
-        orders.map((order) => (
-          <OrderTicket
-            order={order}
-            key={order.id}
-            getAllOrders={getAllOrders}
-          />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      {orders.map((order) => (
+        <OrderTicket
+          order={order}
+          setDetailsOrderId={setDetailsOrderId}
+          key={`order-${orders.id}`}
+        ></OrderTicket>
+      ))}
     </>
   );
-  
 }
+

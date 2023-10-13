@@ -4,7 +4,6 @@ import { AuthorizedRoute } from "./auth/AuthorizedRoute";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import UserProfileList from "./userprofiles/UserProfileList.js";
-import OrderList from "./orders/OrderList.js";
 import Orders from "./orders/Orders.js";
 
 
