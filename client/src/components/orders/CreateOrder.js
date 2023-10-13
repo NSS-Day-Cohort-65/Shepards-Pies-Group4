@@ -1,35 +1,31 @@
 import { useEffect, useState } from "react";
-import { getBikes } from "../../managers/bikeManager";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { useNavigate } from "react-router-dom";
-import { createWorkOrder } from "../../managers/workOrderManager.js";
 
-export default function CreateWorkOrder({ loggedInUser }) {
+export default function CreateOrder({ loggedInUser }) {
   const [description, setDescription] = useState("");
-  const [bikeId, setBikeId] = useState(0);
-  const [bikes, setBikes] = useState([]);
+  const [pizzaSizeId, setPizzaSizeId] = useState(0);
+  const [pizzaSizes, setPizzasSizes] = useState([]);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newWorkOrder = {
-      bikeId,
-      description,
+    const newOrder = {
+      userProfileId,
+      deliveryDriverId,
+      timePlaced,
+      pizzas
     };
 
-    createWorkOrder(newWorkOrder).then(() => {
-      navigate("/workorders");
+    createOrder(newOrder).then(() => {
+      navigate("/orders");
     });
   };
 
-  useEffect(() => {
-    getBikes().then(setBikes);
-  }, []);
-
   return (
     <>
-      <h2>Open a Work Order</h2>
+      <h2>Create an Order</h2>
       <Form>
         <FormGroup>
           <Label>Description</Label>
@@ -42,20 +38,20 @@ export default function CreateWorkOrder({ loggedInUser }) {
           />
         </FormGroup>
         <FormGroup>
-          <Label>Bike</Label>
+          <Label>Pizza</Label>
           <Input
             type="select"
-            value={bikeId}
+            value={pizzaId}
             onChange={(e) => {
-              setBikeId(parseInt(e.target.value));
+              setPizzaId(parseInt(e.target.value));
             }}
           >
-            <option value={0}>Choose a Bike</option>
-            {bikes.map((b) => (
+            <option value={0}>Choose a Size</option>
+            {pizzaSize.map((ps) => (
               <option
-                key={b.id}
-                value={b.id}
-              >{`${b.owner.name} - ${b.brand} - ${b.color}`}</option>
+                key={ps.id}
+                value={ps.id}
+              >{`${ps.owner.name} - ${b.brand} - ${b.color}`}</option>
             ))}
           </Input>
         </FormGroup>
