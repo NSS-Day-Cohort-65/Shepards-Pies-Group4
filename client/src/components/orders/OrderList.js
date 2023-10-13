@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getOrders } from "../../managers/orderManager.js";
+import OrderTicket from "./OrderTicket.js";
 
 export default function OrderList({ setDetailsOrderId }) {
   const [orders, setOrders] = useState([]);
@@ -17,7 +18,7 @@ export default function OrderList({ setDetailsOrderId }) {
       <h2>Orders</h2>
       {orders ? (
         orders.map((order) => (
-          <OrderList
+          <OrderTicket
             order={order}
             key={order.id}
             getAllOrders={getAllOrders}

@@ -8,3 +8,9 @@ export const getOrderById = (id) => {
   return fetch(`${apiUrl}/${id}`).then((res) => res.json());
 };
 
+export const deleteOrder = (id) => {
+  return fetch(`${apiUrl}/${id}`, {
+    method: "DELETE",
+  });
+};
+ 

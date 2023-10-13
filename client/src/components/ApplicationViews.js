@@ -5,6 +5,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import UserProfileList from "./userprofiles/UserProfileList.js";
 import OrderList from "./orders/OrderList.js";
+import Orders from "./orders/Orders.js";
 
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
@@ -20,10 +21,10 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           }
         />
        <Route
-          path="orderlist"
+          path="orders"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <OrderList />
+              <Orders />
             </AuthorizedRoute>
           }
         />
